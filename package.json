@@ -1,19 +1,30 @@
 {
   "name": "electronjs-python",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "main.js",
   "scripts": {
+    "dev": "electron . --dev",
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package-win": "electron-packager . electronjs-python --overwrite --platform=win32 --arch=ia32 --icon=assets/icon.png --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron electronjs-python App\"",
+    "package-linux": "electron-packager . electronjs-python --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^2.0.8"
+    "electron": "^2.0.8",
+    "electron-packager": "^15.0.0"
   },
   "dependencies": {
     "python-shell": "^0.5.0"
+  },
+  "build": {
+    "directories": {
+      "buildResources": "resources",
+      "output": "build"
+    }
   }
 }
